@@ -11,8 +11,16 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as InitiativesRouteImport } from './routes/initiatives'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as SupportRouteImport } from './routes/support'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as AdminLoginRouteImport } from './routes/admin.login'
+import { Route as EventsIndexRouteImport } from './routes/events.index'
+import { Route as EventsIdRouteImport } from './routes/events.$id'
+import { Route as NewsIdRouteImport } from './routes/news.$id'
 import { Route as ProgramsIndexRouteImport } from './routes/programs.index'
 import { Route as ProgramsIdRouteImport } from './routes/programs.$id'
 
@@ -26,6 +34,11 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
@@ -34,6 +47,41 @@ const GalleryRoute = GalleryRouteImport.update({
 const InitiativesRoute = InitiativesRouteImport.update({
   id: '/initiatives',
   path: '/initiatives',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsIndexRoute = EventsIndexRouteImport.update({
+  id: '/events/',
+  path: '/events/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsIdRoute = EventsIdRouteImport.update({
+  id: '/events/$id',
+  path: '/events/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsIdRoute = NewsIdRouteImport.update({
+  id: '/news/$id',
+  path: '/news/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProgramsIndexRoute = ProgramsIndexRouteImport.update({
@@ -50,26 +98,50 @@ const ProgramsIdRoute = ProgramsIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/initiatives': typeof InitiativesRoute
+  '/privacy': typeof PrivacyRoute
+  '/support': typeof SupportRoute
+  '/terms': typeof TermsRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/events/$id': typeof EventsIdRoute
+  '/news/$id': typeof NewsIdRoute
   '/programs/$id': typeof ProgramsIdRoute
+  '/events/': typeof EventsIndexRoute
   '/programs/': typeof ProgramsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/initiatives': typeof InitiativesRoute
+  '/privacy': typeof PrivacyRoute
+  '/support': typeof SupportRoute
+  '/terms': typeof TermsRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/events/$id': typeof EventsIdRoute
+  '/news/$id': typeof NewsIdRoute
   '/programs/$id': typeof ProgramsIdRoute
+  '/events': typeof EventsIndexRoute
   '/programs': typeof ProgramsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/initiatives': typeof InitiativesRoute
+  '/privacy': typeof PrivacyRoute
+  '/support': typeof SupportRoute
+  '/terms': typeof TermsRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/events/$id': typeof EventsIdRoute
+  '/news/$id': typeof NewsIdRoute
   '/programs/$id': typeof ProgramsIdRoute
+  '/events/': typeof EventsIndexRoute
   '/programs/': typeof ProgramsIndexRoute
 }
 export interface FileRouteTypes {
@@ -77,29 +149,66 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/contact'
     | '/gallery'
     | '/initiatives'
+    | '/privacy'
+    | '/support'
+    | '/terms'
+    | '/admin/login'
+    | '/events/$id'
+    | '/news/$id'
     | '/programs/$id'
+    | '/events/'
     | '/programs/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/about' | '/gallery' | '/initiatives' | '/programs/$id' | '/programs'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/gallery'
+    | '/initiatives'
+    | '/privacy'
+    | '/support'
+    | '/terms'
+    | '/admin/login'
+    | '/events/$id'
+    | '/news/$id'
+    | '/programs/$id'
+    | '/events'
+    | '/programs'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/contact'
     | '/gallery'
     | '/initiatives'
+    | '/privacy'
+    | '/support'
+    | '/terms'
+    | '/admin/login'
+    | '/events/$id'
+    | '/news/$id'
     | '/programs/$id'
+    | '/events/'
     | '/programs/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRoute
   InitiativesRoute: typeof InitiativesRoute
+  PrivacyRoute: typeof PrivacyRoute
+  SupportRoute: typeof SupportRoute
+  TermsRoute: typeof TermsRoute
+  AdminLoginRoute: typeof AdminLoginRoute
+  EventsIdRoute: typeof EventsIdRoute
+  NewsIdRoute: typeof NewsIdRoute
   ProgramsIdRoute: typeof ProgramsIdRoute
+  EventsIndexRoute: typeof EventsIndexRoute
   ProgramsIndexRoute: typeof ProgramsIndexRoute
 }
 
@@ -119,6 +228,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/gallery': {
       id: '/gallery'
       path: '/gallery'
@@ -131,6 +247,55 @@ declare module '@tanstack/react-router' {
       path: '/initiatives'
       fullPath: '/initiatives'
       preLoaderRoute: typeof InitiativesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events/': {
+      id: '/events/'
+      path: '/events'
+      fullPath: '/events/'
+      preLoaderRoute: typeof EventsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events/$id': {
+      id: '/events/$id'
+      path: '/events/$id'
+      fullPath: '/events/$id'
+      preLoaderRoute: typeof EventsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news/$id': {
+      id: '/news/$id'
+      path: '/news/$id'
+      fullPath: '/news/$id'
+      preLoaderRoute: typeof NewsIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/programs/': {
@@ -153,9 +318,17 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
   GalleryRoute: GalleryRoute,
   InitiativesRoute: InitiativesRoute,
+  PrivacyRoute: PrivacyRoute,
+  SupportRoute: SupportRoute,
+  TermsRoute: TermsRoute,
+  AdminLoginRoute: AdminLoginRoute,
+  EventsIdRoute: EventsIdRoute,
+  NewsIdRoute: NewsIdRoute,
   ProgramsIdRoute: ProgramsIdRoute,
+  EventsIndexRoute: EventsIndexRoute,
   ProgramsIndexRoute: ProgramsIndexRoute,
 }
 export const routeTree = rootRouteImport
