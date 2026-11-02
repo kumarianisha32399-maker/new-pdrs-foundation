@@ -20,7 +20,7 @@ export function Reveal({ children, className = "", delay = 0 }: { children: Reac
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => {
+    const io = new IntersectionObserver((entries) => { const e = entries[0]; if (!e) return;
       if (e.isIntersecting) { el.classList.add("is-visible"); io.disconnect(); }
     }, { threshold: 0.12 });
     io.observe(el);

@@ -85,7 +85,7 @@ export function useSeo(page: string) {
     const set = (sel: string, attr: string, val: string) => {
       if (!val) return;
       let el = document.head.querySelector<HTMLMetaElement>(sel);
-      if (!el) { el = document.createElement("meta"); el.setAttribute(attr.split("=")[0], attr.split("=")[1]); document.head.appendChild(el); }
+      if (!el) { el = document.createElement("meta"); el.setAttribute(attr.split("=")[0] ?? "name", attr.split("=")[1] ?? ""); document.head.appendChild(el); }
       el.content = val;
     };
     set("meta[name='description']", "name=description", s[`${page}_description`]);

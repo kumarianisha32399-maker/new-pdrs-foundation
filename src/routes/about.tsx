@@ -58,7 +58,7 @@ function About() {
             <ul className="mt-8 space-y-5">
               {lines(a.values).map((v) => {
                 const [head, ...rest] = v.split("—");
-                return <li key={v} className="border-b border-on-dark/10 pb-5"><p className="font-display text-xl text-gold">{head.trim()}</p>{rest.length > 0 && <p className="mt-1 text-on-dark-muted">{rest.join("—").trim()}</p>}</li>;
+                return <li key={v} className="border-b border-on-dark/10 pb-5"><p className="font-display text-xl text-gold">{(head ?? "").trim()}</p>{rest.length > 0 && <p className="mt-1 text-on-dark-muted">{rest.join("—").trim()}</p>}</li>;
               })}
             </ul>
           </div>
